@@ -28,6 +28,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat.BigTextStyle;
+import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -128,7 +130,8 @@ public class Builder {
                 .setTicker(options.getText())
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
-                .setColor(options.getColor());
+                .setColor(options.getColor())
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(options.getText()));
 
         if (ledColor != 0) {
             builder.setLights(ledColor, 100, 100);
